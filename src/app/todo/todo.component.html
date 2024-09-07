@@ -1,0 +1,31 @@
+
+<div class="todo-container">
+    <h2>To-Do List</h2>
+  
+    <!-- Input field and button to add new tasks -->
+    <input [(ngModel)]="newTask" placeholder="Enter a new task" />
+    <button (click)="addTask()">Add Task</button>
+  
+    <ul>
+      <li *ngFor="let todo of todos; let i = index">
+        <span (click)="covertComplete(i)">{{ todo.task }}</span>
+        <button (click)="deleteTask(i)">Delete</button>
+      </li>
+    </ul>
+
+
+    <div class="col-11">
+      <ul class="list-group" *ngFor="let task of tasks">
+        <li class="list-group-item d-flex align-items-center justify-content-between" >
+          {{task.title}}
+          <div  class="d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-primary" (click)="covertComplete(task.id)">complete</button>
+            <button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">delete</button>
+          </div>
+  
+        </li>
+  
+      </ul>
+    </div>
+    
+  </div>
